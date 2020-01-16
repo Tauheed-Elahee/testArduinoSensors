@@ -8,11 +8,13 @@
 set(CMAKE_TOOLCHAIN_FILE cmake/ArduinoToolchain.cmake) # Arduino Toolchain
 
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10)
+
 #====================================================================#
 #  Setup Project                                                     #
 #====================================================================#
-project(ArduinoExample C CXX)
+set(CMAKE_CXX_STANDARD 11)
+project(testArduinoSensor C CXX)
 
 print_board_list()
 print_programmer_list()
