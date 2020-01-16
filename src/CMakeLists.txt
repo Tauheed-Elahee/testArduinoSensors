@@ -2,9 +2,9 @@ set(ARDUINO_DEFAULT_BOARD uno)
 set(ARDUINO_DEFAULT_PORT /dev/ttyACM0)
 
 link_directories(../arduino_libraries/Adafruit_Sensor)
-link_directories(${ARDUINO_SDK_PATH}/libraries/Wire)
+link_directories(../arduino_libraries/ArduinoCore-avr/libraries/Wire)
 set(Wire_RECURSE True)
-link_directories(${ARDUINO_SDK_PATH}/libraries/SPI)
+link_directories(../arduino_libraries/ArduinoCore-avr/libraries/libraries/SPI)
 set(SPI_RECURSE True)
 link_directories(../arduino_libraries/Adafruit_BMP280)
 
