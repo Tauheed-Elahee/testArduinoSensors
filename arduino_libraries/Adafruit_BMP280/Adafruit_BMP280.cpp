@@ -166,13 +166,13 @@ void Adafruit_BMP280::write8(byte reg, byte value) {
     _wire->endTransmission();
   } else {
     if (_sck == -1)
-      _spi->beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      _spi->begin(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg & ~0x80); // write, bit 7 low
     spixfer(value);
     digitalWrite(_cs, HIGH);
     if (_sck == -1)
-      _spi->endTransaction(); // release the SPI bus
+      _spi->end(); // release the SPI bus
   }
 }
 
@@ -194,13 +194,13 @@ uint8_t Adafruit_BMP280::read8(byte reg) {
 
   } else {
     if (_sck == -1)
-      _spi->beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      _spi->begin(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg | 0x80); // read, bit 7 high
     value = spixfer(0);
     digitalWrite(_cs, HIGH);
     if (_sck == -1)
-      _spi->endTransaction(); // release the SPI bus
+      _spi->end(); // release the SPI bus
   }
   return value;
 }
@@ -220,13 +220,13 @@ uint16_t Adafruit_BMP280::read16(byte reg) {
 
   } else {
     if (_sck == -1)
-      _spi->beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      _spi->begin(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg | 0x80); // read, bit 7 high
     value = (spixfer(0) << 8) | spixfer(0);
     digitalWrite(_cs, HIGH);
     if (_sck == -1)
-      _spi->endTransaction(); // release the SPI bus
+      _spi->end(); // release the SPI bus
   }
 
   return value;
@@ -266,7 +266,7 @@ uint32_t Adafruit_BMP280::read24(byte reg) {
 
   } else {
     if (_sck == -1)
-      _spi->beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE0));
+      _spi->begin(SPISettings(500000, MSBFIRST, SPI_MODE0));
     digitalWrite(_cs, LOW);
     spixfer(reg | 0x80); // read, bit 7 high
 
@@ -278,7 +278,7 @@ uint32_t Adafruit_BMP280::read24(byte reg) {
 
     digitalWrite(_cs, HIGH);
     if (_sck == -1)
-      _spi->endTransaction(); // release the SPI bus
+      _spi->end(); // release the SPI bus
   }
 
   return value;
