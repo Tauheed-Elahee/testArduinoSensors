@@ -17,5 +17,4 @@ project(ArduinoExample C CXX)
 print_board_list()
 print_programmer_list()
 
-add_subdirectory(arduino_libraries)   #add the directory with the arduino libraries
 add_subdirectory(src) # add the source directory
