@@ -7,6 +7,7 @@ link_directories(../arduino_libraries/ArduinoCore-avr/libraries/libraries/SPI)
 set(SPI_RECURSE True)
 link_directories(../arduino_libraries/Adafruit_Sensor)
 link_directories(../arduino_libraries/Adafruit_BMP280)
+link_directories(../arduino_libraries/DHT)
 
 generate_arduino_firmware(arduino_sensors
     SRCS main.cpp
