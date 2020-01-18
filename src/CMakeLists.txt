@@ -10,7 +10,8 @@ link_directories(../arduino_libraries/Adafruit_BMP280)
 link_directories(../arduino_libraries/DHT)
 
 generate_arduino_firmware(arduino_sensors
-    SRCS main.cpp
+    SKETCH ../arduino_libraries/DHT/examples/DHTtester
+    #SRCS main.cpp
     PORT /dev/ttyACM0
     BOARD uno
 )
